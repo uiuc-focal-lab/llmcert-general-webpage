@@ -144,62 +144,62 @@
   </script>
 </head>
 <body>
-
-
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Bypassing the Safety Training of Open-Source LLMs with Priming Attacks</h1>
+          <div class="is-size-5 publication-authors">
+            <!-- Paper authors -->
+            <span class="author-block">
+              <a href="https://jason-vega.github.io/" target="_blank">Jason Vega</a><sup>1</sup><sup>*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/ishalogy/home" target="_blank">Isha Chaudhary</a><sup>1</sup><sup>*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="cmxu.io" target="_blank">Changming Xu</a><sup>1</sup><sup>*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ggndpsngh.github.io/" target="_blank">Gagandeep Singh</a><sup>1,2</sup>
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              University of Illinois Urbana Champaign<sup>1</sup>, VMWare Research <sup>2</sup><br><!--Conference Name/Date-->
+            </span>
+            <span class="eql-cntrb">
+              <small><br><sup>*</sup>Indicates equal contribution</small>
+            </span>
+          </div>
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Bypassing the Safety Training of Open-Source LLMs with Priming Attacks</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="https://jason-vega.github.io/" target="_blank">Jason Vega</a><sup>1</sup><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="https://sites.google.com/view/ishalogy/home" target="_blank">Isha Chaudhary</a><sup>1</sup><sup>*</sup>,</span>
-                  <span class="author-block">
-                  <a href="cmxu.io" target="_blank">Changming Xu</a><sup>1</sup><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="https://ggndpsngh.github.io/" target="_blank">Gagandeep Singh</a><sup>1,2</sup>
-                  </span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">University of Illinois Urbana Champaign<sup>1</sup>, VMWare Research <sup>2</sup><br><!--Conference Name/Date--></span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates equal contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                  <!-- ArXiv abstract Link -->
-                  <span class="link-block">
-                    <a href="https://arxiv.org/abs/2312.12321" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="ai ai-arxiv"></i>
-                      </span>
-                      <span>Paper</span>
-                    </a>
-                  </span>
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/uiuc-focal-lab/priming-attack" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code & Data</span>
-                  </a>
+            <!-- ArXiv abstract Link -->
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2312.12321" target="_blank"
+              class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="ai ai-arxiv"></i>
                 </span>
-            </div>
+                <span>Paper</span>
+              </a>
+            </span>
+            <!-- Github link -->
+            <span class="link-block">
+              <a href="https://github.com/uiuc-focal-lab/priming-attack" target="_blank"
+              class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+              <span>Code & Data</span>
+              </a>
+            </span>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
@@ -221,8 +221,6 @@
   </div>
 </section>
 <!-- End paper abstract -->
-
-
 <!-- Overview -->
 <section class="hero is-small">
   <div class="hero-body">
@@ -231,24 +229,24 @@
         <div class="column">
           <h2 class="title is-3">Overview</h2>
           <div class="'content has-text-justified">
-            <p style="white-space: pre-line;">Autoregressive Large Language Models (LLMs) have emerged as powerful conversational agents widely used in user-facing applications. To ensure that LLMs cannot be used for nefarious purposes, they are extensively safety-trained for human alignment using techniques such as RLHF. Most current methods to circumvent safety-training either requires manual effort to craft cleverly-designed "jailbreak" prompts, or requires computationally expensive optimization.
-          </p>
-          <p style="white-space: pre-line;">
-            Much prior work assumes an attacker is restricted to an unchangeable prompt scaffolding format. Although this is a reasonable assumption for transferring attacks to <i>closed-source</i> models, it is an unnecessary one when extracting harmful behavior content from <i>open-source</i> models. Since some organizations have recently taken firm stances in promoting open-source LLM research (e.g. <a href="https://about.fb.com/news/2023/07/llama-2-statement-of-support/">Meta</a>), <b>we argue that allowing unrestricted inputs should be considered an increasingly practical assumption.</b>
-          </p>
-          <p style="white-space: pre-line;">
-            In this work, we investigate a class of <b>optimization-free methods for circumventing LLM safety training</b> we refer to as <i>priming attacks</i>. Our threat model only assumes that the attacker has API query access such that they can obtain probabilities for the next token conditioned on <i>any</i> input. Priming attacks then <b>append small strings of text <i>after</i> the prompt scaffolding</b> to <i>prime</i> the model with the start of a compliant response, exploiting the autoregressive nature of LLMs to generate harmful content. An adversary can also <b>iteratively alternate between priming and generating</b> by appending a bit of generated text to the prompt before constructing a new priming attack; <b>we provide such a tool for attacking Llama 2 in our code.</b> This process requires much less manual effort than traditional jailbreaks, and is significantly more efficient than optimization-based attacks.
-          </p>
-          <p style="white-space: pre-line;">
-            Our investigations highlight the ease at which adversaries can coax open-source LLMs to comply with arbitrary harmful requests. We believe that this raises non-trivial points of concern for the future of open-sourcing LLMs, and we hope that our work helps promote further research into novel methods for safer open-sourcing.
-          </p>
+            <p>
+              Autoregressive Large Language Models (LLMs) have emerged as powerful conversational agents widely used in user-facing applications. To ensure that LLMs cannot be used for nefarious purposes, they are extensively safety-trained for human alignment using techniques such as RLHF. Most current methods to circumvent safety-training either requires manual effort to craft cleverly-designed "jailbreak" prompts, or requires computationally expensive optimization.
+            </p>
+            <p style="white-space: pre-line;">
+              Much prior work assumes an attacker is restricted to an unchangeable prompt scaffolding format. Although this is a reasonable assumption for transferring attacks to <i>closed-source</i> models, it is an unnecessary one when extracting harmful behavior content from <i>open-source</i> models. Since some organizations have recently taken firm stances in promoting open-source LLM research (e.g. <a href="https://about.fb.com/news/2023/07/llama-2-statement-of-support/">Meta</a>), <b>we argue that allowing unrestricted inputs should be considered an increasingly practical assumption.</b>
+            </p>
+            <p style="white-space: pre-line;">
+              In this work, we investigate a class of <b>optimization-free methods for circumventing LLM safety training</b> we refer to as <i>priming attacks</i>. Our threat model only assumes that the attacker has API query access such that they can obtain probabilities for the next token conditioned on <i>any</i> input. Priming attacks then <b>append small strings of text <i>after</i> the prompt scaffolding</b> to <i>prime</i> the model with the start of a compliant response, exploiting the autoregressive nature of LLMs to generate harmful content. An adversary can also <b>iteratively alternate between priming and generating</b> by appending a bit of generated text to the prompt before constructing a new priming attack; <b>we provide such a tool for attacking Llama 2 in our code.</b> This process requires much less manual effort than traditional jailbreaks, and is significantly more efficient than optimization-based attacks.
+            </p>
+            <p style="white-space: pre-line;">
+              Our investigations highlight the ease at which adversaries can coax open-source LLMs to comply with arbitrary harmful requests. We believe that this raises non-trivial points of concern for the future of open-sourcing LLMs, and we hope that our work helps promote further research into novel methods for safer open-sourcing.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </section>
-
 <!-- Examples -->
 <section class="hero is-small is-light row" style="overflow:visible;">
   <div class="hero-body" style="overflow:visible;">
@@ -260,79 +258,68 @@
             <p style="white-space: pre-line;">
               The following responses were generated by safety-trained Llama-2 (7B). <span class='text-info'>The user prompt is shown in blue.</span> <span class='text-warning'>The priming attack is shown in orange</span>, which is manually added to start the model response and thus is not generated. All text in black is generated by the AI. Use the selector to switch between prompts and with/without the priming attack. Note that while sometimes the model backtracks to warn the user against the action, part of the response still provides extensive harmful content. Spacing/line breaks have been added to AI responses for readability.
             </p>
-            </div>
-
-    <div class="row justify-content-center">
-        <div class="bs-component">
-          <div class="card mb-3">
-            <nav class="card-header navbar navbar-expand-sm bg-light" data-bs-theme="light">
-              <div class="container-fluid">
-
-                  <ul class="navbar-nav me-auto">
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Select harmful prompt</a>
-                      <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#" onclick="selectChat(0,$('#flexSwitchCheckDefault').is(':checked'));return false;">Cheat on an exam</a>
-                        <a class="dropdown-item" href="#" onclick="selectChat(1,$('#flexSwitchCheckDefault').is(':checked'));return false;">Commit insider trading</a>
-                        <a class="dropdown-item" href="#" onclick="selectChat(2,$('#flexSwitchCheckDefault').is(':checked'));return false;">Evade law enforcement</a>
-                        <a class="dropdown-item" href="#" onclick="selectChat(3,$('#flexSwitchCheckDefault').is(':checked'));return false;">Pick a lock</a>
-                      </div>
-                    </li>
-                  </ul>
-                  <div class="form-check form-switch d-flex">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="selectChat(selectedIndex,$('#flexSwitchCheckDefault').is(':checked'));">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">&nbsp; Apply priming attack</label>
+          </div>
+          <div class="row justify-content-center">
+            <div class="bs-component">
+              <div class="card mb-3">
+                <nav class="card-header navbar navbar-expand-sm bg-light" data-bs-theme="light">
+                  <div class="container-fluid">
+                    <ul class="navbar-nav me-auto">
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Select harmful prompt</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#" onclick="selectChat(0,$('#flexSwitchCheckDefault').is(':checked'));return false;">Cheat on an exam</a>
+                          <a class="dropdown-item" href="#" onclick="selectChat(1,$('#flexSwitchCheckDefault').is(':checked'));return false;">Commit insider trading</a>
+                          <a class="dropdown-item" href="#" onclick="selectChat(2,$('#flexSwitchCheckDefault').is(':checked'));return false;">Evade law enforcement</a>
+                          <a class="dropdown-item" href="#" onclick="selectChat(3,$('#flexSwitchCheckDefault').is(':checked'));return false;">Pick a lock</a>
+                        </div>
+                      </li>
+                    </ul>
+                    <div class="form-check form-switch d-flex">
+                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="selectChat(selectedIndex,$('#flexSwitchCheckDefault').is(':checked'));">
+                      <label class="form-check-label" for="flexSwitchCheckDefault">&nbsp; Apply priming attack</label>
+                    </div>
                   </div>
-
-              </div>
-            </nav>
-
-            <div class="card-body">
-            <div class="row has-text-justified">
-
-              <div class="d-flex flex-row justify-content-end mb-4">
-                <div class="p-3 me-3 border" style="border-radius: 15px; background-color: #fbfbfb;">
-                  <p class="small mb-0"><span id="chat-user-query" class="text-info"></span></p>
+                </nav>
+              <div class="card-body">
+                <div class="row has-text-justified">
+                  <div class="d-flex flex-row justify-content-end mb-4">
+                    <div class="p-3 me-3 border" style="border-radius: 15px; background-color: #fbfbfb;">
+                      <p class="small mb-0"><span id="chat-user-query" class="text-info"></span></p>
+                    </div>
+                    <img src="static/images/hacker.png"
+                      alt="hacker avatar" style="width: 45px; height: 45px;" hidden="true" id="chat-user-icon">
+                  </div>
+                  <div class="d-flex flex-row justify-content-start mb-4">
+                    <img src="static/images/robot.png"
+                      alt="ai avatar" style="width: 45px; height: 45px;" hidden="true" id="chat-ai-icon">
+                    <div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
+                      <p class="small mb-0"><span style="white-space: pre-wrap" id="chat-adversarial-suffix" class="text-warning"></span><span style="white-space: pre-wrap" id="chat-ai-response"></span></p>
+                    </div>
+                  </div>
+                  <!--<div class="col-md-2 col-sm-4">
+                    <i hidden="true" id="chat-user-icon" class="bi-person"></i><b hidden="true" id="chat-user-label">&nbsp;User</b>
+                    </div>
+                  <div class="col-md-10">
+                    <p><span id="chat-user-query" class="text-info"></span></p>
+                  </div>-->
+                  <!--</div>
+                  <div class="row has-text-justified">
+                    <div class="col-md-2 col-sm-4">
+                      <i hidden="true" id="chat-ai-icon" class="bi-robot"></i><b hidden="true" id="chat-ai-label" >&nbsp;AI</b> 
+                    </div>
+                    <div class="col-md-10">
+                      <span id="chat-adversarial-suffix" class="text-warning"></span><p style="white-space: pre-wrap" id="chat-ai-response"></p>
+                  </div>-->
                 </div>
-                <img src="static/images/hacker.png"
-                  alt="hacker avatar" style="width: 45px; height: 45px;" hidden="true" id="chat-user-icon">
               </div>
-
-              <div class="d-flex flex-row justify-content-start mb-4">
-                <img src="static/images/robot.png"
-                  alt="ai avatar" style="width: 45px; height: 45px;" hidden="true" id="chat-ai-icon">
-                <div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
-                  <p class="small mb-0"><span style="white-space: pre-wrap" id="chat-adversarial-suffix" class="text-warning"></span><span style="white-space: pre-wrap" id="chat-ai-response"></span></p>
-                </div>
-              </div>
-              
-              <!--<div class="col-md-2 col-sm-4">
-                <i hidden="true" id="chat-user-icon" class="bi-person"></i><b hidden="true" id="chat-user-label">&nbsp;User</b>
-                </div>
-              <div class="col-md-10">
-                 <p><span id="chat-user-query" class="text-info"></span></p>
-              </div>-->
-              
-            <!--</div>
-            <div class="row has-text-justified">
-              <div class="col-md-2 col-sm-4">
-                <i hidden="true" id="chat-ai-icon" class="bi-robot"></i><b hidden="true" id="chat-ai-label" >&nbsp;AI</b> 
-              </div>
-              <div class="col-md-10">
-                <span id="chat-adversarial-suffix" class="text-warning"></span><p style="white-space: pre-wrap" id="chat-ai-response"></p>
-            </div>-->
-
+            </div>
           </div>
-
-            
-          </div>
-
+        </div>
       </div>
-      </div>
-      </div>
+    </div>
   </div>
 </section>
-
 <!-- Ethics -->
 <section class="hero is-small">
   <section class="hero is-small">
@@ -342,42 +329,39 @@
           <div class="column">
             <h2 class="title is-3">Ethics Statement</h2>
             <div class="content has-text-justified">
-            
-      <p>
-        This work contains instructions and code that can allow users to generate harmful content from open-source LLMs. Despite this, we believe it is important to share this research. Our methods are simple and have appeared in some form in previous literature and we believe it is an attack that even a non-technical end-user could discover. This is exemplified by the plethora of manual jailbreaks discovered just shortly after the popularity of LLM chat-bots, with these manual jailbreaks being more complicated than the priming attacks used in this work. We hope that our work spawns further discussion and research into the safety of open-source LLMs.
-      </p>
-      </div>
-  </div>
-  </div>
-  </div>
-  </section>
-
-
-  <!-- Connect -->
-  <section class="hero is-small is-light row">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-            <h2 class="title is-3">Connect With Us</h2>
-            <div class="content has-text-centered">
-              <span class="link-block">
-                <a href="https://www.twitter.com/uiuc_focal_lab" target="_blank"
-                class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="bi bi-twitter-x"></i>
-                  </span>
-                  <span>Twitter</span>
-                </a>
-              </span>
+              <p>
+                This work contains instructions and code that can allow users to generate harmful content from open-source LLMs. Despite this, we believe it is important to share this research. Our methods are simple and have appeared in some form in previous literature and we believe it is an attack that even a non-technical end-user could discover. This is exemplified by the plethora of manual jailbreaks discovered just shortly after the popularity of LLM chat-bots, with these manual jailbreaks being more complicated than the priming attacks used in this work. We hope that our work spawns further discussion and research into the safety of open-source LLMs.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-
+</section>
+<!-- Connect -->
+<section class="hero is-small is-light row">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Connect With Us</h2>
+          <div class="content has-text-centered">
+            <span class="link-block">
+              <a href="https://www.twitter.com/uiuc_focal_lab" target="_blank"
+              class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="bi bi-twitter-x"></i>
+                </span>
+                <span>Twitter</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <!--BibTex citation -->
 <!-- Add when we have a citation
   <section class="section" id="BibTeX">
@@ -388,20 +372,16 @@
 </section>
 -->
 <!--End BibTex citation -->
-
-
   <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
             You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br><br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
-
         </div>
       </div>
     </div>
