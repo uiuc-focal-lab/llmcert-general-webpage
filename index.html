@@ -219,11 +219,22 @@
         <div class="content has-text-justified">
           <p>
             <center><b><FONT COLOR="#ff0000">
-              Content Warning: This work contains examples of harmful language.  
+              Content Warning: This work contains examples of offensive language.  
             </center></b></FONT>
           </p>
           <p>
-            With the recent surge in popularity of LLMs has come an ever-increasing need for LLM safety training. In this paper, we investigate the fragility of SOTA open-source LLMs under simple, optimization-free attacks we refer to as <i>priming attacks</i>, which are easy to execute and effectively bypass alignment from safety training. Our proposed attack improves the Attack Success Rate on Harmful Behaviors, as measured by Llama Guard, by up to 3.3x compared to baselines.
+            Large Language Models (LLMs) can produce responses that exhibit social biases
+            and support stereotypes. However, conventional benchmarking is insufficient to
+            thoroughly evaluate LLM bias, as it can not scale to large sets of prompts and
+            provides no guarantees. Therefore, we propose a novel certification framework
+            QuaCer-B that provides formal guarantees on
+            obtaining unbiased responses from target LLMs under large sets of prompts. A
+            certificate consists of high-confidence bounds on the probability of obtaining biased
+            responses from the LLM for any set of prompts containing sensitive attributes,
+            sampled from a distribution. We illustrate the bias certification in LLMs for prompts
+            with various prefixes drawn from given distributions. We consider distributions
+            of random token sequences, mixtures of manual jailbreaks, and jailbreaks in the
+            LLM’s embedding space to certify its bias. We certify popular LLMs with QuaCer-B and present novel insights into their biases.
           </p>
         </div>
       </div>
