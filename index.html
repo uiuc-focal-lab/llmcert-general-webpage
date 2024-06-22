@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="We show that open-source LLMs are highly susceptible to optimization-free attacks, making it easy to subvert safety training and get responses to harmful queries.">
+  <meta name="description" content="We present a novel framework to quantitatively certify .">
   <meta property="og:title" content="Open-Source LLM Priming Attacks"/>
   <meta property="og:description" content="Open-source LLM safety training is easy to bypass with priming attacks."/>
   <meta property="og:url" content="uiuc_focal_lab.github.io/llm_priming_attack"/>
@@ -153,19 +153,19 @@
           <div class="is-size-5 publication-authors">
             <!-- Paper authors -->
             <span class="author-block">
-              <a href="https://sites.google.com/view/ishalogy/home" target="_blank">Isha Chaudhary</a><sup>1</sup><sup>*</sup>,
+              <a href="https://sites.google.com/view/ishalogy/home" target="_blank">Isha Chaudhary</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.amazon.science/author/qian-hu" target="_blank">Qian Hu</a><sup>2</sup><sup>*</sup>,
+              <a href="https://www.amazon.science/author/qian-hu" target="_blank">Qian Hu</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.linkedin.com/in/manojpamk/" target="_blank">Manoj Kumar</a><sup>4</sup><sup>*</sup>,
+              <a href="https://www.linkedin.com/in/manojpamk/" target="_blank">Manoj Kumar</a><sup>4</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.linkedin.com/in/morteza-ziyadi-a3818ba9/" target="_blank">Morteza Ziyadi</a><sup>2</sup><sup>*</sup>,
+              <a href="https://www.linkedin.com/in/morteza-ziyadi-a3818ba9/" target="_blank">Morteza Ziyadi</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://guptarah.github.io/" target="_blank">Rahul Gupta</a><sup>2</sup><sup>*</sup>,
+              <a href="https://guptarah.github.io/" target="_blank">Rahul Gupta</a><sup>2</sup>,
             </span>
             <span class="author-block">
               <a href="https://ggndpsngh.github.io/" target="_blank">Gagandeep Singh</a><sup>1,3</sup>
@@ -173,7 +173,7 @@
           </div>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              University of Illinois Urbana-Champaign<sup>1</sup>, Amazon <sup>2</sup> VMWare Research <sup>3</sup>Pyron <sup>4</sup><br><!--Conference Name/Date-->
+              University of Illinois Urbana-Champaign<sup>1</sup>, Amazon <sup>2</sup>, VMWare Research <sup>3</sup>, Pyron <sup>4</sup><br><!--Conference Name/Date-->
             </span>
           </div>
           <div class="column has-text-centered">
@@ -254,16 +254,28 @@
           <h2 class="title is-3">Overview</h2>
           <div class="'content has-text-justified">
             <p>
-              Autoregressive Large Language Models (LLMs) have emerged as powerful conversational agents widely used in user-facing applications. To ensure that LLMs cannot be used for nefarious purposes, they are extensively safety-trained for human alignment using techniques such as RLHF. Most current methods to circumvent safety-training either requires manual effort to craft cleverly-designed "jailbreak" prompts, or requires computationally expensive optimization.
+              Large Language Models (LLMs) have shown impressive performance as chatbots, and are hence used by millions of people worldwide. This, however, brings their safety and trustworthiness to the forefront, making it imperative to guarantee their reliability. Prior work has generally focused on establishing the trust in LLMs using evaluations on standard benchmarks. This analysis, however, is insufficient due to the limitations of the benchmarking datasets, their use in LLMs' safety training, and the lack of guarantees through benchmarking. As an alternative, we propose quantitative certificates for LLMs and develop a novel framework, QuaCer-B, to quantitatively certify LLMs for bias in their responses. We define bias as an assymetry in the LLM's responses for a set of prompts that differ only by a sensitive attribute. 
             </p>
             <p style="white-space: pre-line;">
-              Much prior work assumes an attacker is restricted to an unchangeable prompt scaffolding format. Although this is a reasonable assumption for transferring attacks to <i>closed-source</i> models, it is an unnecessary one when extracting harmful behavior content from <i>open-source</i> models. Since some organizations have recently taken firm stances in promoting open-source LLM research (e.g. <a href="https://about.fb.com/news/2023/07/llama-2-statement-of-support/">Meta</a>), <b>we argue that allowing unrestricted inputs should be considered an increasingly practical assumption.</b>
+              QuaCer-B considers a given distribution of sets of prompts to certify a target LLM. The certificate consists of high-confidence bounds on the probability of obtaining a biased response from the LLM for a randomly sampled prompt from the distribution. These bounds are compared against a user-defined bias-tolerance level and the LLM is certified biased if the lower bound is more than the threshold and unbiased if the upper bound is lower than the threshold. The figure below presents an overview of QuaCer-B on an example distribution of prompts developed from a sample from the <a href="https://arxiv.org/abs/2101.11718">BOLD dataset</a>.
             </p>
+            <figure>
+              <img src="static/images/quacer-b.png" alt="Quacer-B" style="width:100%">
+              <figcaption> (Overview of QuaCer-B): QuaCer-B is a quantitative certification framework to certify
+                the bias in the responses of a target LLM for a random set of prompts that differ by their sensitive
+                attribute. In specific instantiations, QuaCer-B samples a (a) set of prefixes from a given distribution
+                and prepends them to a prompt set to form (b) the prompts given to the target LLM. The target
+                LLM’s (c) responses are checked for bias by a bias detector, whose results are fed into a certifier.
+                The certifier computes bounds on the probability of obtaining biased responses from the target LLM
+                for any set of prompts formed with a random prefix from the distribution. The certifier adaptively
+                samples prefixes, until either the lower bound of bias is more than or the upper bound is less than a
+                threshold η, certifying the model to be biased or unbiased respectively</figcaption>
+            </figure>
             <p style="white-space: pre-line;">
-              In this work, we investigate a class of <b>optimization-free methods for circumventing LLM safety training</b> we refer to as <i>priming attacks</i>. Our threat model only assumes that the attacker has API query access such that they can obtain probabilities for the next token conditioned on <i>any</i> input. Priming attacks then <b>append small strings of text <i>after</i> the prompt scaffolding</b> to <i>prime</i> the model with the start of a compliant response, exploiting the autoregressive nature of LLMs to generate harmful content. An adversary can also <b>interactively alternate between priming and generating</b> by appending a bit of generated text to the prompt before constructing a new priming attack; <b>we provide such a tool for attacking Llama 2 in our code.</b> This process requires much less manual effort than traditional jailbreaks, and is significantly more efficient than optimization-based attacks.
-            </p>
+              We illustrate certificates generated by QuaCer-B for the popular, SOTA LLMs with 3 kinds of distributions. Each distribution is defined over a sample space having elements that are sets of prompts. Each set of prompts is developed from a fixed set of prompts by prepending a random prefix. The fixed set of prompts that characterize a distribution of sets of prompts is derived from samples of popular fairness datasets, by varying the sensitive attributes in them. Hence, the distribution of the sets of prompts reduces to a distribution of prefixes for a fixed set of prompts. The 3 kinds of prefix distributions we consider are (details in the paper) - (1) Random sequence of tokens, (2) Mixture of effective jailbreaks, (3) Effective jailbreak perturbed in model's embedding space.              
+            </p> 
             <p style="white-space: pre-line;">
-              Our investigations highlight the ease at which adversaries can coax open-source LLMs to comply with arbitrary harmful requests. We believe that this raises non-trivial points of concern for the future of open-sourcing LLMs, and we hope that our work helps promote further research into novel methods for safer open-sourcing.
+              We certify popular LLMs for their bias with QuaCer-B and instances of the 3 kinds of distributions defined above. In particular, we certify the LLMs for gender and racial bias with distributions developed from samples from the <a href="https://arxiv.org/abs/2101.11718">BOLD</a> and <a href="https://arxiv.org/abs/2306.11698">Decoding Trust</a> datasets respectively. We observe novel trends in the performance of the LLMs, which we describe in detail in our paper. Below we show some example responses of the SOTA LLMs to prompts sampled from a distribution derived from each dataset for gender and racial bias respectively, to illustrate the prompts and responses used in certification. 
             </p>
           </div>
         </div>
