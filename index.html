@@ -277,19 +277,23 @@
             </center></b></FONT>
           </p>
           <p>
-            Large Language Models (LLMs) can produce responses that exhibit social biases
-            and support stereotypes. However, conventional benchmarking is insufficient to
-            thoroughly evaluate LLM bias, as it can not scale to large sets of prompts and
-            provides no guarantees. Therefore, we propose a novel certification framework
-            QuaCer-B that provides formal guarantees on
-            obtaining unbiased responses from target LLMs under large sets of prompts. A
-            certificate consists of high-confidence bounds on the probability of obtaining biased
-            responses from the LLM for any set of prompts containing sensitive attributes,
-            sampled from a distribution. We illustrate the bias certification in LLMs for prompts
-            with various prefixes drawn from given distributions. We consider distributions
-            of random token sequences, mixtures of manual jailbreaks, and jailbreaks in the
-            LLM’s embedding space to certify its bias. We certify popular LLMs with QuaCer-B and present novel insights into their biases.
+            Large Language Models (LLMs) can produce biased responses that can cause representational harms. However, conventional studies are insufficient to thoroughly evaluate LLM bias, as they can not scale to large number of inputs and provide no guarantees. Therefore, we propose the first framework, QuaCer-B (Quantitative Certification of Bias) that certifies LLMs for bias on distributions of prompts. A certificate consists of high-confidence bounds on the probability of unbiased LLM responses for any set of prompts mentioning various demographic groups, sampled from a distribution. We illustrate the bias certification for distributions of prompts created by applying varying prefixes drawn from a prefix distributions, to a given set of prompts. We consider prefix distributions for random token sequences, mixtures of manual jailbreaks, and jailbreaks in the LLM’s embedding space to certify bias. We obtain non-trivial certified bounds on the probability of unbiased responses of SOTA LLMs, exposing their vulnerabilities over distributions of prompts generated from computationally inexpensive distributions of prefixes.
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Media coverage</h2>
+        <div class="content has-text-justified">
+          <li>
+            <b>[Jul 2024]</b> Thanks to Bruce Adams and <a href="https://siebelschool.illinois.edu/" style="color: rgb(0, 187, 255);">Siebel School of Computing and Data Science</a> for writing about our work here <a href="https://siebelschool.illinois.edu/news/bias-LLMs" style="color: rgb(0, 187, 255);">https://siebelschool.illinois.edu/news/bias-LLMs</a>.
+          </li>
         </div>
       </div>
     </div>
@@ -308,19 +312,17 @@
               Large Language Models (LLMs) have shown impressive performance as chatbots, and are hence used by millions of people worldwide. This, however, brings their safety and trustworthiness to the forefront, making it imperative to guarantee their reliability. Prior work has generally focused on establishing the trust in LLMs using evaluations on standard benchmarks. This analysis, however, is insufficient due to the limitations of the benchmarking datasets, their use in LLMs' safety training, and the lack of guarantees through benchmarking. As an alternative, we propose quantitative certificates for LLMs and develop a novel framework, QuaCer-B, to quantitatively certify LLMs for bias in their responses. We define bias as an assymetry in the LLM's responses for a set of prompts that differ only by a sensitive attribute. 
             </p>
             <p style="white-space: pre-line;">
-              QuaCer-B considers a given distribution of sets of prompts to certify a target LLM. The certificate consists of high-confidence bounds on the probability of obtaining a biased response from the LLM for a randomly sampled prompt from the distribution. These bounds are compared against a user-defined bias-tolerance level and the LLM is certified biased if the lower bound is more than the threshold and unbiased if the upper bound is lower than the threshold. The figure below presents an overview of QuaCer-B on an example distribution of prompts developed from a sample from the <a href="https://arxiv.org/abs/2101.11718">BOLD dataset</a>.
+              QuaCer-B considers a given distribution of sets of prompts to certify a target LLM. The certificate consists of high-confidence bounds on the probability of obtaining a biased response from the LLM for a randomly sampled prompt from the distribution. The figure below presents an overview of QuaCer-B on an example distribution of prompts developed from a sample from the <a href="https://arxiv.org/abs/2101.11718">BOLD dataset</a>.
             </p>
             <figure>
-              <img src="static/images/quacer-b.png" alt="Quacer-B" style="width:100%">
+              <img src="static/images/overview.png" alt="Quacer-B" style="width:100%">
               <figcaption> (Overview of QuaCer-B): QuaCer-B is a quantitative certification framework to certify
                 the bias in the responses of a target LLM for a random set of prompts that differ by their sensitive
                 attribute. In specific instantiations, QuaCer-B samples a (a) set of prefixes from a given distribution
-                and prepends them to a prompt set to form (b) the prompts given to the target LLM. The target
-                LLM’s (c) responses are checked for bias by a bias detector, whose results are fed into a certifier.
-                The certifier computes bounds on the probability of obtaining biased responses from the target LLM
-                for any set of prompts formed with a random prefix from the distribution. The certifier adaptively
-                samples prefixes, until either the lower bound of bias is more than or the upper bound is less than a
-                threshold η, certifying the model to be biased or unbiased respectively</figcaption>
+                and prepends them to a prompt set to form (b) the prompts given to the target LLM. (c) The target
+                LLM’s responses are checked for (d) bias by a bias detector, whose results are fed into a certifier.
+                (e) The certifier computes bounds on the probability of obtaining biased responses from the target LLM
+                for any set of prompts formed with a random prefix from the distribution.</figcaption>
             </figure>
             <p style="white-space: pre-line;">
               We illustrate certificates generated by QuaCer-B for the popular, SOTA LLMs with 3 kinds of distributions. Each distribution is defined over a sample space having elements that are sets of prompts. Each set of prompts is developed from a fixed set of prompts by prepending a random prefix. The fixed set of prompts that characterize a distribution of sets of prompts is derived from samples of popular fairness datasets, by varying the sensitive attributes in them. Hence, the distribution of the sets of prompts reduces to a distribution of prefixes for a fixed set of prompts. The 3 kinds of prefix distributions we consider are (details in the paper) - (1) Random sequence of tokens, (2) Mixture of effective jailbreaks, (3) Effective jailbreak perturbed in model's embedding space.              
@@ -450,13 +452,14 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@misc{chaudhary2024quantitative,
+    <pre><code>@misc{chaudhary2024quantitativecertificationbiaslarge,
       title={Quantitative Certification of Bias in Large Language Models}, 
       author={Isha Chaudhary and Qian Hu and Manoj Kumar and Morteza Ziyadi and Rahul Gupta and Gagandeep Singh},
       year={2024},
       eprint={2405.18780},
       archivePrefix={arXiv},
-      primaryClass={id='cs.AI' full_name='Artificial Intelligence' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers all areas of AI except Vision, Robotics, Machine Learning, Multiagent Systems, and Computation and Language (Natural Language Processing), which have separate subject areas. In particular, includes Expert Systems, Theorem Proving (although this may overlap with Logic in Computer Science), Knowledge Representation, Planning, and Uncertainty in AI. Roughly includes material in ACM Subject Classes I.2.0, I.2.1, I.2.3, I.2.4, I.2.8, and I.2.11.'}
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2405.18780}, 
 }</code></pre>
   </div>
 </section>
