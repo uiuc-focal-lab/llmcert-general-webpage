@@ -46,104 +46,6 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
-
-  <script>
-    var showText = function (target, message, index, interval) {   
-      if (index < message.length) {
-        $(target).append(message[index++]);
-        setTimeout(function () { showText(target, message, index, interval); }, interval);
-      }
-    }
-    
-    var selectedIndex = 0;
-    bias_type = 'gender'; // other option = 'race'
-    let isActive = false;
-
-    // Function to toggle state and update button style
-    function toggleState() {
-        // Toggle the state
-        isActive = true;
-        // Update button appearance and behavior
-        const button = document.getElementById('toggleButton');
-        if (isActive) {
-            selectedIndex = (selectedIndex + 1)%3;
-            selectChat(selectedIndex, bias_type,0);
-            isActive = false;
-        } 
-        button.textContent = 'Another example';
-    }
-
-    var selectChat = function(index, btype, speed = 0.2) {
-      if (index >= 0) {
-        if (btype == "race") {
-          fillChat(responses_race[index], -1, speed,"1");
-          fillChat(responses_race[index], -1, speed,"2");
-          bias_type = 'race';
-        } else {
-          fillChat(responses_gender[index], -1, speed,"1");
-          fillChat(responses_gender[index], -1, speed,"2");
-          bias_type = 'gender';
-        }
-      }
-    }
-
-
-    var fillChat = function (responses, pos, interval, num) {
-      var prefix = responses["prefix"];
-      if (pos == -1) {
-        $("#chat-user-icon-"+num).prop("hidden", true);
-        $("#chat-ai-icon-"+num).prop("hidden", true);
-        $("#chat-hacker-icon-1").prop("hidden", false);
-
-        $("#chat-prefix-"+num).text(prefix);
-        pos = prefix.length;
-        $("#chat-user-query-"+num).text("");
-        $("#chat-ai-response-"+num).text("");
-        setTimeout(function() {fillChat(responses, prefix.length, interval,num)}, interval);
-      } else {
-        $("#chat-prefix-"+num).text(prefix);
-        $("#chat-hacker-icon-1").prop("hidden", false);
-        if (pos >= 0) {
-          $("#chat-user-icon-"+num).prop("hidden", false);
-        }
-        if (num == '1') {
-          var query = responses["user1"];
-          var response = responses['response1'];
-        }
-        else {
-          var query = responses["user2"];
-          var response = responses['response2'];
-        }
-        if (pos >= prefix.length + query.length){
-          $("#chat-ai-icon-"+num).prop("hidden", false);
-        }
-        if (pos < prefix.length) {
-          $("#chat-prefix-"+num).append(prefix);
-          pos = prefix.length;
-          setTimeout(function() {fillChat(responses, pos, interval,num)}, 0);
-        }
-        else if (pos < prefix.length + query.length) {
-          if (query[pos-prefix.length] == '<') {
-            var old = pos;
-            pos += 1;
-            while (query[pos-prefix.length] != '>' || query[pos-prefix.length-2] != '/') {
-              pos += 1;
-            }
-            $("#chat-user-query-"+num).append(query.slice(old-prefix.length, pos-prefix.length+1));
-          }
-          else {
-            $("#chat-user-query-"+num).append(query[pos-prefix.length]);
-          }
-          setTimeout(function() {fillChat(responses, pos+1, interval,num)}, interval/2);
-        } 
-        else if (pos < query.length + prefix.length + response.length) {
-          $("#chat-ai-response-"+num).append(response[pos - query.length - prefix.length]);
-          setTimeout(function() {fillChat(responses, pos+1, interval,num)}, interval);
-        }
-      }
-    }
-    window.onload = selectChat(0, bias_type, 0);
-  </script>
 </head>
 <body>
 <section class="hero">
@@ -206,14 +108,14 @@
           <h2 class="title is-3">Certifying counterfactual bias with LLMCert-B</h2>
           <div class="'content has-text-justified">
             <figure>
-              <img src="static/images/overview.png" alt="LLMCert-B" style="width:100%">
-              <figcaption> (Overview of LLMCert-B): LLMCert-B is a quantitative certification framework to certify
-                the bias in the responses of a target LLM for a random set of prompts that differ by their sensitive
+              <img src="static/images/overview.png" alt="LLMCert-B" style="width:100%" href="llmcert-b.certifyllm.com">
+              <figcaption> LLMCert-B is a quantitative certification framework to certify
+                the counterfactual bias in the responses of a target LLM for a random set of prompts that differ by their sensitive
                 attribute. In specific instantiations, LLMCert-B samples a (a) set of prefixes from a given distribution
                 and prepends them to a prompt set to form (b) the prompts given to the target LLM. (c) The target
                 LLM’s responses are checked for (d) bias by a bias detector, whose results are fed into a certifier.
                 (e) The certifier computes bounds on the probability of obtaining biased responses from the target LLM
-                for any set of prompts formed with a random prefix from the distribution.</figcaption>
+                for any set of prompts formed with a random prefix from the distribution. Check the project page <a href="llmcert-b.certifyllm.com">here</a>. </figcaption>
             </figure>
           </div>
         </div>
