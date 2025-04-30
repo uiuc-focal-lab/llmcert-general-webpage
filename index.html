@@ -180,21 +180,42 @@
     </div>
   </div>
 </section>
+
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">TL;DR</h2>
         <div class="content has-text-justified">
           <p>
-            <center><b><FONT COLOR="#ff0000">
-              Content Warning: This work contains examples of offensive language.  
-            </center></b></FONT>
+            Large Language Models (LLMs) have shown impressive performance as chatbots, and are hence used by millions of people worldwide. This, however, brings their safety and trustworthiness to the forefront, making it imperative to guarantee their reliability. Prior work has generally focused on establishing the trust in LLMs using evaluations on standard benchmarks. This analysis, however, is insufficient due to the limitations of the benchmarking datasets, their use in LLMs' safety training, and the lack of guarantees through benchmarking. As an alternative, we propose quantitative certificates for LLMs. We present the <b>first</b> family of frameworks, LLMCert, that gives formal guarantees on the behaviors of LLMs. Individual frameworks certify LLMs for counterfactual bias and knowledge comprehension. We provide details of the individual frameworks in their respective project pages given below. 
           </p>
-          <p>
-            Large Language Models (LLMs) can produce biased responses that can cause representational harms. However, conventional studies are insufficient to thoroughly evaluate biases across LLM responses for different demographic groups (a.k.a. counterfactual bias), as they do not scale to large number of inputs and do not provide guarantees. Therefore, we propose the first framework, LLMCert-B that certifies LLMs for counterfactual bias on distributions of prompts. A certificate consists of high-confidence bounds on the probability of unbiased LLM responses for any set of counterfactual prompts - prompts differing by demographic groups, sampled from a distribution. We illustrate counterfactual bias certification for distributions of counterfactual prompts created by applying prefixes sampled from prefix distributions, to a given set of prompts. We consider prefix distributions consisting random token sequences, mixtures of manual jailbreaks, and perturbations of jailbreaks in LLM’s embedding space. We generate non-trivial certificates for SOTA LLMs, exposing their vulnerabilities over distributions of prompts generated from computationally inexpensive prefix distributions.
-          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Overview -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Certifying counterfactual bias with LLMCert-B</h2>
+          <div class="'content has-text-justified">
+            <figure>
+              <img src="static/images/overview.png" alt="LLMCert-B" style="width:100%">
+              <figcaption> (Overview of LLMCert-B): LLMCert-B is a quantitative certification framework to certify
+                the bias in the responses of a target LLM for a random set of prompts that differ by their sensitive
+                attribute. In specific instantiations, LLMCert-B samples a (a) set of prefixes from a given distribution
+                and prepends them to a prompt set to form (b) the prompts given to the target LLM. (c) The target
+                LLM’s responses are checked for (d) bias by a bias detector, whose results are fed into a certifier.
+                (e) The certifier computes bounds on the probability of obtaining biased responses from the target LLM
+                for any set of prompts formed with a random prefix from the distribution.</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </div>
@@ -218,43 +239,8 @@
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
-<!-- Overview -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <h2 class="title is-3">Overview</h2>
-          <div class="'content has-text-justified">
-            <p>
-              Large Language Models (LLMs) have shown impressive performance as chatbots, and are hence used by millions of people worldwide. This, however, brings their safety and trustworthiness to the forefront, making it imperative to guarantee their reliability. Prior work has generally focused on establishing the trust in LLMs using evaluations on standard benchmarks. This analysis, however, is insufficient due to the limitations of the benchmarking datasets, their use in LLMs' safety training, and the lack of guarantees through benchmarking. As an alternative, we propose quantitative certificates for LLMs and develop a novel framework, LLMCert-B, to quantitatively certify LLMs for bias in their responses. We define bias as an assymetry in the LLM's responses for a set of prompts that differ only by a sensitive attribute. 
-            </p>
-            <p style="white-space: pre-line;">
-              LLMCert-B considers a given distribution of sets of prompts to certify a target LLM. The certificate consists of high-confidence bounds on the probability of obtaining a biased response from the LLM for a randomly sampled prompt from the distribution. The figure below presents an overview of LLMCert-B on an example distribution of prompts developed from a sample from the <a href="https://arxiv.org/abs/2101.11718">BOLD dataset</a>.
-            </p>
-            <figure>
-              <img src="static/images/overview.png" alt="LLMCert-B" style="width:100%">
-              <figcaption> (Overview of LLMCert-B): LLMCert-B is a quantitative certification framework to certify
-                the bias in the responses of a target LLM for a random set of prompts that differ by their sensitive
-                attribute. In specific instantiations, LLMCert-B samples a (a) set of prefixes from a given distribution
-                and prepends them to a prompt set to form (b) the prompts given to the target LLM. (c) The target
-                LLM’s responses are checked for (d) bias by a bias detector, whose results are fed into a certifier.
-                (e) The certifier computes bounds on the probability of obtaining biased responses from the target LLM
-                for any set of prompts formed with a random prefix from the distribution.</figcaption>
-            </figure>
-            <p style="white-space: pre-line;">
-              We illustrate certificates generated by LLMCert-B for the popular, SOTA LLMs with 3 kinds of distributions. Each distribution is defined over a sample space having elements that are sets of prompts. Each set of prompts is developed from a fixed set of prompts by prepending a random prefix. The fixed set of prompts that characterize a distribution of sets of prompts is derived from samples of popular fairness datasets, by varying the sensitive attributes in them. Hence, the distribution of the sets of prompts reduces to a distribution of prefixes for a fixed set of prompts. The 3 kinds of prefix distributions we consider are (details in the paper) - (1) Random sequence of tokens, (2) Mixture of effective jailbreaks, (3) Effective jailbreak perturbed in model's embedding space.              
-            </p> 
-            <p style="white-space: pre-line;">
-              We certify popular LLMs for their bias with LLMCert-B and instances of the 3 kinds of distributions defined above. In particular, we certify the LLMs for gender and racial bias with distributions developed from samples from the <a href="https://arxiv.org/abs/2101.11718">BOLD</a> and <a href="https://arxiv.org/abs/2306.11698">Decoding Trust</a> datasets respectively. We observe novel trends in the performance of the LLMs, which we describe in detail in our paper. Below we show some example responses of a SOTA LLM to prompts sampled from a distribution derived from each dataset for gender and racial bias respectively, to illustrate the prompts and responses used in certification. 
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+
  
 </body>
 </html>
