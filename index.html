@@ -99,7 +99,6 @@
   </div>
 </section>
 
-<!-- Overview -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -111,12 +110,30 @@
             <figure>
               <img src="static/images/overview.png" alt="LLMCert-B" style="width:100%">
               <figcaption> LLMCert-B is a quantitative certification framework to certify
-                the counterfactual bias in the responses of a target LLM for a random set of prompts that differ by their sensitive
-                attribute. In specific instantiations, LLMCert-B samples a (a) set of prefixes from a given distribution
+                the counterfactual bias in the responses of a target LLM for a random set of prompts that differ by their sensitive attribute. In specific instantiations, LLMCert-B samples a (a) set of prefixes from a given distribution
                 and prepends them to a prompt set to form (b) the prompts given to the target LLM. (c) The target
                 LLM’s responses are checked for (d) bias by a bias detector, whose results are fed into a certifier.
                 (e) The certifier computes bounds on the probability of obtaining biased responses from the target LLM
                 for any set of prompts formed with a random prefix from the distribution. Check the project page <a href="https://llmcert-b.certifyllm.com">here</a>. </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <a href="https://llmcert-c.certifyllm.com/"><u><h2 class="title is-3">Certifying knowledge comprehension with LLMCert-C</h2></u></a>
+          <br>
+          <div class="'content has-text-justified">
+            <figure>
+              <img src="static/images/quacer-c_overview.png" alt="LLMCert-B" style="width:100%">
+              <figcaption> LLMCert-C evaluates an LLM's knowledge comprehension by (1) using knowledge graphs to represent prompt distributions, (2) generating diverse prompts with natural variations, (3) evaluating responses against ground truth, and (4) producing formal certificates with probabilistic guarantees. Through applying our framework to precision medicine and general question-answering domains, we demonstrate how naturally occurring noise in prompts can affect response accuracy in state-of-the-art LLMs. We establish novel performance hierarchies with high confidence among SOTA LLMs and provide quantitative metrics that can guide their future development and deployment in knowledge-critical applications. Check the project page <a href="https://llmcert-c.certifyllm.com/">here</a>. </figcaption>
             </figure>
           </div>
         </div>
@@ -143,6 +160,21 @@
   </div>
 </section>
 
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br><br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 
  
 </body>
