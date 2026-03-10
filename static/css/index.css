@@ -286,3 +286,33 @@ details summary:hover {
   font-weight: 500;
   font-size: 0.95rem;
 }
+
+/* Lumos slideshow */
+.lumos-slideshow-img {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 0.25rem;
+}
+
+.slideshow-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.slideshow-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.slideshow-dot.active {
+  background-color: #000;
+}

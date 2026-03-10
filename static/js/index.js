@@ -18,11 +18,11 @@ $(document).ready(function() {
 	
     bulmaSlider.attach();
 
-    // Simple overview slideshow from exported PPT slides
-    var slideshowImg = document.getElementById('overview-slideshow');
+    // Simple Lumos overview slideshow from exported PPT slides
+    var slideshowImg = document.getElementById('lumos-slideshow');
     // Slides are expected at:
     // static/images/lumos-overview-slides/lumos_slides/Slide<number>.png
-    var lumosSlideCount = 1; // TODO: set this to the number of slides you add
+    var lumosSlideCount = 11; // Set this to the number of slides you add
     var slidePaths = [];
     for (var i = 1; i <= lumosSlideCount; i++) {
       slidePaths.push('static/images/lumos-overview-slides/lumos_slides/Slide' + i + '.png');
@@ -30,12 +30,44 @@ $(document).ready(function() {
 
     if (slideshowImg && slidePaths.length > 0) {
       var idx = 0;
-      slideshowImg.src = slidePaths[0];
+
+      var dotsContainer = document.getElementById('lumos-slideshow-dots');
+      var dots = [];
+
+      function setSlide(newIdx) {
+        idx = newIdx;
+        slideshowImg.src = slidePaths[idx];
+        if (dots.length) {
+          dots.forEach(function(dot, i) {
+            if (i === idx) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        }
+      }
+
+      if (dotsContainer) {
+        for (var j = 0; j < slidePaths.length; j++) {
+          var dot = document.createElement('span');
+          dot.className = 'slideshow-dot' + (j === 0 ? ' active' : '');
+          (function(index) {
+            dot.addEventListener('click', function() {
+              setSlide(index);
+            });
+          })(j);
+          dotsContainer.appendChild(dot);
+          dots.push(dot);
+        }
+      }
+
+      setSlide(0);
+
       if (slidePaths.length > 1) {
         setInterval(function() {
-          idx = (idx + 1) % slidePaths.length;
-          slideshowImg.src = slidePaths[idx];
-        }, 5000); // 5 seconds per slide
+          setSlide((idx + 1) % slidePaths.length);
+        }, 1500); // 1 second per slide
       }
     }
 
