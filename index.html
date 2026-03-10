@@ -48,35 +48,46 @@
   <script src="static/js/index.js"></script>
 </head>
 <body>
+<div class="toc-sidebar">
+  <div class="toc-title-block">
+    <h3 class="toc-title">Certifying frontier model systems</h3>
+    <!-- <p class="toc-subtitle">Certifying frontier model systems</p> -->
+  </div>
+  <div class="toc-contact">
+    <span class="link-block">
+      <a href="mailto:isha4@illinois.edu" target="_blank"
+      class="external-link button is-small is-rounded is-dark">
+        <span class="icon">
+          <i class="fa fa-envelope"></i>
+        </span>
+        <span>Contact</span>
+      </a>
+    </span>
+    <span class="link-block">
+      <a href="https://www.twitter.com/uiuc_focal_lab" target="_blank"
+      class="external-link button is-small is-rounded is-dark">
+        <span class="icon">
+          <i class="bi bi-twitter-x"></i>
+        </span>
+        <span>Twitter</span>
+      </a>
+    </span>
+  </div>
+  <ul class="toc-list">
+    <li class="toc-item"><a href="#tldr" class="toc-link">TL;DR</a></li>
+    <li class="toc-item"><a href="#lumos" class="toc-link"><span class="smallcaps">Lumos</span></a></li>
+    <li class="toc-item"><a href="#llmcert" class="toc-link"><span class="smallcaps">LLMCert</span></a></li>
+    <li class="toc-item"><a href="#media" class="toc-link">Media</a></li>
+    <li class="toc-item"><a href="#contributors" class="toc-link">Contributors</a></li>
+  </ul>
+</div>
+
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Let there be Frontier Model System Certification</h1>
-          
-          <div class="column has-text-centered">
-
-            <span class="link-block">
-              <a href="https://www.twitter.com/uiuc_focal_lab" target="_blank"
-              class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <i class="bi bi-twitter-x"></i>
-                </span>
-                <span>Twitter</span>
-              </a>
-            </span>
-
-            <span class="link-block">
-              <a href="mailto:isha4@illinois.edu" target="_blank"
-              class="external-link button is-normal is-rounded is-dark">
-                <span class="icon">
-                  <i class="fa fa-envelope"></i>
-                </span>
-                <span>Contact</span>
-              </a>
-            </span>
-          </div>
         </div>
       </div>
     </div>
@@ -84,7 +95,7 @@
 </section>
 
 <!-- Paper abstract -->
-<section class="section hero is-light">
+<section class="section hero is-light" id="tldr">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column">
@@ -234,7 +245,7 @@
   </div>
 </section>
 
-<section class="section hero">
+<section class="section hero" id="media">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column">
@@ -252,7 +263,7 @@
   </div>
 </section>
 
-<section class="section hero">
+<section class="section hero" id="contributors">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column">
@@ -263,36 +274,42 @@
               <img src="static/images/ppl/Isha_Chaudhary.png" alt="Isha Chaudhary">
             </div>
             <p class="contrib-name">Isha Chaudhary</p>
+            <p class="contrib-affil">UIUC</p>
           </div>
           <div class="contrib-item">
             <div class="contrib-avatar">
               <img src="static/images/ppl/Vedaant_Jain.png" alt="Vedaant Jain">
             </div>
             <p class="contrib-name">Vedaant Jain</p>
+            <p class="contrib-affil">Kumo AI<br><span style="font-size:0.8rem;">(work done while at UIUC)</span></p>
           </div>
           <div class="contrib-item">
             <div class="contrib-avatar">
               <img src="static/images/ppl/Jehyeok_Yeon.png" alt="Jehyeok Yeon">
             </div>
             <p class="contrib-name">Jehyeok Yeon</p>
+            <p class="contrib-affil">UIUC</p>
           </div>
           <div class="contrib-item">
             <div class="contrib-avatar">
               <img src="static/images/ppl/Kavya_Sachdeva.png" alt="Kavya Sachdeva">
             </div>
             <p class="contrib-name">Kavya Sachdeva</p>
+            <p class="contrib-affil">UIUC</p>
           </div>
           <div class="contrib-item">
             <div class="contrib-avatar">
               <img src="static/images/ppl/Sayan_Ranu.png" alt="Sayan Ranu">
             </div>
             <p class="contrib-name">Sayan Ranu</p>
+            <p class="contrib-affil">IIT Delhi</p>
           </div>
           <div class="contrib-item">
             <div class="contrib-avatar">
               <img src="static/images/ppl/Gagandeep_Singh.png" alt="Gagandeep Singh">
             </div>
             <p class="contrib-name">Gagandeep Singh</p>
+            <p class="contrib-affil">UIUC</p>
           </div>
         </div>
 
@@ -303,24 +320,28 @@
               <img src="static/images/ppl/Qian_Hu.png" alt="Qian Hu">
             </div>
             <p class="contrib-name">Qian Hu</p>
+            <p class="contrib-affil">Amazon</p>
           </div>
           <div class="contrib-item">
             <div class="contrib-avatar">
               <img src="static/images/ppl/Manoj_Kumar.png" alt="Manoj Kumar">
             </div>
             <p class="contrib-name">Manoj Kumar</p>
+            <p class="contrib-affil">Oracle Health<br><span style="font-size:0.8rem;">(work done while at Amazon)</span></p>
           </div>
           <div class="contrib-item">
             <div class="contrib-avatar">
               <img src="static/images/ppl/Morteza_Ziyadi.png" alt="Morteza Ziyadi">
             </div>
             <p class="contrib-name">Morteza Ziyadi</p>
+            <p class="contrib-affil">Amazon</p>
           </div>
           <div class="contrib-item">
             <div class="contrib-avatar">
               <img src="static/images/ppl/Rahul_Gupta.png" alt="Rahul Gupta">
             </div>
             <p class="contrib-name">Rahul Gupta</p>
+            <p class="contrib-affil">Amazon</p>
           </div>
         </div>
       </div>
@@ -345,5 +366,43 @@
 </footer>
 
  
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var sections = ['#tldr', '#lumos', '#llmcert', '#media', '#contributors'];
+    var tocLinks = document.querySelectorAll('.toc-link');
+
+    function updateActiveSection() {
+      var scrollPos = window.pageYOffset + 150;
+
+      // Clear all
+      tocLinks.forEach(function (link) {
+        link.classList.remove('active');
+      });
+
+      var currentId = null;
+
+      for (var i = 0; i < sections.length; i++) {
+        var id = sections[i];
+        var el = document.querySelector(id);
+        if (!el) continue;
+        var offsetTop = el.offsetTop;
+        if (scrollPos >= offsetTop) {
+          currentId = id;
+        }
+      }
+
+      if (currentId) {
+        var active = document.querySelector('.toc-link[href="' + currentId + '"]');
+        if (active) {
+          active.classList.add('active');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', updateActiveSection);
+    updateActiveSection();
+  });
+</script>
+
 </body>
 </html>

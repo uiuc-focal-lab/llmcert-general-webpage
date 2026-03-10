@@ -67,7 +67,19 @@ $(document).ready(function() {
       if (slidePaths.length > 1) {
         setInterval(function() {
           setSlide((idx + 1) % slidePaths.length);
-        }, 1500); // 1 second per slide
+        }, 2000); // 2 seconds per slide
+      }
+
+      // Restart slideshow from first slide when Lumos block enters viewport
+      var lumosSection = document.getElementById('lumos');
+      if (lumosSection) {
+        window.addEventListener('scroll', function () {
+          var rect = lumosSection.getBoundingClientRect();
+          var inView = rect.top < window.innerHeight && rect.bottom > 0;
+          if (inView) {
+            setSlide(0);
+          }
+        });
       }
     }
 

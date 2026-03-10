@@ -149,6 +149,69 @@ body {
   font-size: smaller;
 }
 
+/* Fixed TOC sidebar */
+.toc-sidebar {
+  position: fixed;
+  top: 50%;
+  left: 1.5rem;
+  width: 220px;
+  z-index: 50;
+  font-family: 'Google Sans', sans-serif;
+  transform: translateY(-50%);
+}
+
+body {
+  padding-left: 260px;
+}
+
+.toc-title-block {
+  margin-bottom: 0.75rem;
+}
+
+.toc-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.1rem;
+}
+
+.toc-subtitle {
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.toc-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.toc-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.toc-item {
+  margin-bottom: 0.25rem;
+}
+
+.toc-link {
+  font-weight: 600;
+  color: #111827;
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+.toc-link:hover {
+  text-decoration: underline;
+}
+
+.toc-link.active {
+  background-color: #fee2e2;
+  border-radius: 6px;
+  padding: 0.05rem 0.35rem;
+}
+
 /* Generic small caps helper */
 .smallcaps {
   font-variant: small-caps;
@@ -285,6 +348,12 @@ details summary:hover {
 .contrib-name {
   font-weight: 500;
   font-size: 0.95rem;
+}
+
+.contrib-affil {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: -0.15rem;
 }
 
 /* Lumos slideshow */
