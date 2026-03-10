@@ -257,9 +257,72 @@
     <div class="columns is-centered has-text-centered">
       <div class="column">
         <h2 class="title is-3">Contributors</h2>
-        <div id="contributors-container" class="contributors-grid"></div>
+        <div class="contributors-grid">
+          <div class="contrib-item">
+            <div class="contrib-avatar">
+              <img src="static/images/ppl/Isha_Chaudhary.png" alt="Isha Chaudhary">
+            </div>
+            <p class="contrib-name">Isha Chaudhary</p>
+          </div>
+          <div class="contrib-item">
+            <div class="contrib-avatar">
+              <img src="static/images/ppl/Vedaant_Jain.png" alt="Vedaant Jain">
+            </div>
+            <p class="contrib-name">Vedaant Jain</p>
+          </div>
+          <div class="contrib-item">
+            <div class="contrib-avatar">
+              <img src="static/images/ppl/Jehyeok_Yeon.png" alt="Jehyeok Yeon">
+            </div>
+            <p class="contrib-name">Jehyeok Yeon</p>
+          </div>
+          <div class="contrib-item">
+            <div class="contrib-avatar">
+              <img src="static/images/ppl/Kavya_Sachdeva.png" alt="Kavya Sachdeva">
+            </div>
+            <p class="contrib-name">Kavya Sachdeva</p>
+          </div>
+          <div class="contrib-item">
+            <div class="contrib-avatar">
+              <img src="static/images/ppl/Sayan_Ranu.png" alt="Sayan Ranu">
+            </div>
+            <p class="contrib-name">Sayan Ranu</p>
+          </div>
+          <div class="contrib-item">
+            <div class="contrib-avatar">
+              <img src="static/images/ppl/Gagandeep_Singh.png" alt="Gagandeep Singh">
+            </div>
+            <p class="contrib-name">Gagandeep Singh</p>
+          </div>
+        </div>
+
         <h3 class="title is-4" style="margin-top: 2rem;">Industry collaborators</h3>
-        <div id="industry-collabs-container" class="contributors-grid"></div>
+        <div class="contributors-grid">
+          <div class="contrib-item">
+            <div class="contrib-avatar">
+              <img src="static/images/ppl/Qian_Hu.png" alt="Qian Hu">
+            </div>
+            <p class="contrib-name">Qian Hu</p>
+          </div>
+          <div class="contrib-item">
+            <div class="contrib-avatar">
+              <img src="static/images/ppl/Manoj_Kumar.png" alt="Manoj Kumar">
+            </div>
+            <p class="contrib-name">Manoj Kumar</p>
+          </div>
+          <div class="contrib-item">
+            <div class="contrib-avatar">
+              <img src="static/images/ppl/Morteza_Ziyadi.png" alt="Morteza Ziyadi">
+            </div>
+            <p class="contrib-name">Morteza Ziyadi</p>
+          </div>
+          <div class="contrib-item">
+            <div class="contrib-avatar">
+              <img src="static/images/ppl/Rahul_Gupta.png" alt="Rahul Gupta">
+            </div>
+            <p class="contrib-name">Rahul Gupta</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -280,77 +343,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-  // Add contributor full names here; recursion will render them all.
-  const CONTRIBUTORS = [
-    "Isha Chaudhary",
-    "Vedaant Jain",
-    "Jehyeok Yeon",
-    "Kavya Sachdeva",
-    "Sayan Ranu",
-    "Gagandeep Singh",
-  ];
-
-  // Add industry collaborator full names here.
-  const INDUSTRY_COLLABORATORS = [
-    // "First Last",
-    "Qian Hu",
-    "Manoj Kumar",
-    "Morteza Ziyadi",
-    "Rahul Gupta"
-  ];
-
-  function slugFromName(name) {
-    const parts = name.trim().toLowerCase().split(/\s+/);
-    if (parts.length === 1) return parts[0];
-    return parts[0] + "_" + parts[parts.length - 1];
-  }
-
-  function renderContributorsRec(names, idx, container) {
-    if (idx >= names.length) return;
-    const name = names[idx];
-    const slug = slugFromName(name);
-
-    const item = document.createElement("div");
-    item.className = "contrib-item";
-
-    const avatar = document.createElement("div");
-    avatar.className = "contrib-avatar";
-
-    const img = document.createElement("img");
-    img.src = "static/images/ppl/" + slug + ".png";
-    img.alt = name;
-    img.onerror = function () {
-      // If no image yet, keep the blank circle.
-      this.style.display = "none";
-    };
-
-    avatar.appendChild(img);
-
-    const label = document.createElement("p");
-    label.className = "contrib-name";
-    label.textContent = name;
-
-    item.appendChild(avatar);
-    item.appendChild(label);
-    container.appendChild(item);
-
-    renderContributorsRec(names, idx + 1, container);
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const contribContainer = document.getElementById("contributors-container");
-    if (contribContainer && Array.isArray(CONTRIBUTORS)) {
-      renderContributorsRec(CONTRIBUTORS, 0, contribContainer);
-    }
-
-    const industryContainer = document.getElementById("industry-collabs-container");
-    if (industryContainer && Array.isArray(INDUSTRY_COLLABORATORS)) {
-      renderContributorsRec(INDUSTRY_COLLABORATORS, 0, industryContainer);
-    }
-  });
-</script>
 
  
 </body>
