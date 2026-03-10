@@ -104,6 +104,29 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column">
+          <a href="https://lumos.certifyllm.com/"><u><h2 class="title is-3">Lumos: Let there be Language Model System Certification</h2></u></a>
+          <br>
+          <div class="'content has-text-justified">
+            <!-- <figure>
+              <img src="static/images/lumos_overview.png" alt="Lumos" style="width:100%">
+              <figcaption>  </figcaption>
+              
+            </figure> -->
+            <p>We introduce Lumos, the first principled framework for specifying and formally certifying behaviors of Language Model Systems (LMS). Lumos is an imperative probabilistic programming DSL over graphs that generates i.i.d. prompts by sampling subgraphs from structured prompt distributions. It integrates with statistical certifiers to verify LMS behavior under arbitrary prompt distributions. Despite using only a small set of composable constructs, Lumos can encode existing LMS specifications, including complex relational and temporal properties. It also enables new safety specifications; for example, we develop the <b>first</b> specifications for vision-language models in autonomous driving. Using these, we show that Qwen-VL exhibits critical safety failures, producing unsafe responses with ≥90% probability in rainy right-turn scenarios. Lumos’s modular design makes specifications easy to modify as threats evolve and helps uncover concrete failure cases in state-of-the-art LMS.</p>
+            <h2><a href="https://lumos.certifyllm.com/"><u>Check the project page here.</u></a></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
           <a href="https://llmcert-b.certifyllm.com"><u><h2 class="title is-3">Certifying counterfactual bias with LLMCert-B</h2></u></a>
           <br>
           <div class="'content has-text-justified">
@@ -124,7 +147,7 @@
   </div>
 </section>
 
-<section class="hero is-small is-light">
+<section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
@@ -133,11 +156,31 @@
           <br>
           <div class="'content has-text-justified">
             <figure>
-              <img src="static/images/quacer-c_overview.png" alt="LLMCert-B" style="width:100%">
+              <img src="static/images/quacer-c_overview.png" alt="LLMCert-C" style="width:100%">
               <figcaption> LLMCert-C evaluates an LLM's knowledge comprehension by (1) using knowledge graphs to represent prompt distributions, (2) generating diverse prompts with natural variations, (3) evaluating responses against ground truth, and (4) producing formal certificates with probabilistic guarantees. Through applying our framework to precision medicine and general question-answering domains, we demonstrate how naturally occurring noise in prompts can affect response accuracy in state-of-the-art LLMs. We establish novel performance hierarchies with high confidence among SOTA LLMs and provide quantitative metrics that can guide their future development and deployment in knowledge-critical applications. </figcaption>
               
             </figure>
-            <h2><a href="https://llmcert-b.certifyllm.com"><u>Check the project page here.</u></a></h2>
+            <h2><a href="https://llmcert-c.certifyllm.com/"><u>Check the project page here.</u></a></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <a href="https://llmcert-t.certifyllm.com"><u><h2 class="title is-3">Quantifying Distributional Robustness of Agentic Tool-Selection</h2></u></a>
+          <br>
+          <div class="'content has-text-justified">
+            <figure>
+              <img src="static/images/cats.png" alt="LLMCert-B" style="width:100%">
+              <figcaption> LLMCert-T is the first statistical certification framework for robustness in agentic tool selection. It models tool selection as a Bernoulli random variable under a strong adaptive attacker that injects adversarial tools with misleading metadata. Our evaluation reveals severe fragility: under adaptive attacks, the certified bounds on accuracy collapses to nearly 0% for state-of-the-art models such as Llama-3.1 and Gemma-3.  </figcaption>
+            </figure>
+            <h2><a href="https://llmcert-t.certifyllm.com"><u>Check the project page here.</u></a></h2>
           </div>
         </div>
       </div>
