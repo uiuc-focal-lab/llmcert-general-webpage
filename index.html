@@ -14,8 +14,8 @@
   <meta property="og:image:height" content="630"/>
 
 
-  <meta name="twitter:title" content="Certifying Large Language Models with LLMCert">
-  <meta name="twitter:description" content="Open-source LLM  Certification framework, LLMCert-B for bias in LLM responses.">
+  <meta name="twitter:title" content="Let there be Frontier Model System Certification">
+  <meta name="twitter:description" content="We introduce certification for frontier model systems, a new paradigm that quantifies the probability that systems produce desirable outputs over realistic prompt distributions.">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
   <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -23,7 +23,7 @@
   <meta name="keywords" content="Large Language Models, Certification, Open-Source, Efficient, Bias">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Certifying LLMs with LLMCert</title>
+  <title>Let there be Frontier Model System Certification</title>
   <link rel="icon" type="image/x-icon" href="static/images/quacer_logo.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
@@ -53,7 +53,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Certifying Large Language Models with LLMCert</h1>
+          <h1 class="title is-1 publication-title">Let there be Frontier Model System Certification</h1>
           
           <div class="column has-text-centered">
 
@@ -89,9 +89,29 @@
     <div class="columns is-centered has-text-centered">
       <div class="column">
         <h2 class="title is-3">TL;DR</h2>
-        <div class="content has-text-justified">
+        <div class="content has-text-justified tldr-points">
           <p>
-            Large Language Models (LLMs) have shown impressive performance as chatbots, and are hence used by millions of people worldwide. This, however, brings their safety and trustworthiness to the forefront, making it imperative to guarantee their reliability. Prior work has generally focused on establishing the trust in LLMs using evaluations on standard benchmarks. This analysis, however, is insufficient due to the limitations of the benchmarking datasets, their use in LLMs' safety training, and the lack of guarantees through benchmarking. As an alternative, we propose quantitative certificates for LLMs. We present the <b>first</b> family of frameworks, LLMCert, that gives formal guarantees on the behaviors of LLMs. Individual frameworks certify LLMs for counterfactual bias and knowledge comprehension. We provide details of the individual frameworks in their respective project pages given below. 
+            <span class="tldr-emoji">🔍</span>
+            <span class="tldr-label">Challenge</span>:
+            <b>Frontier Model Systems (FMS)</b>—applications built on LLMs and VLMs—are rapidly automating complex workflows, but often show <b>unpredictable brittleness</b> (biased, unsafe, or incorrect behavior), and existing benchmarks/adversarial tests lack <b>formal guarantees</b>.
+          </p>
+          <p>
+            <span class="tldr-emoji">💡</span>
+            <span class="tldr-label">Idea</span>:
+            We introduce <b>formal certification for frontier model systems</b> that quantifies the <b>probability of desirable behavior</b> over realistic prompt distributions using <b>black-box probabilistic certification</b>.
+          </p>
+          <p>
+            <span class="tldr-emoji">📏</span>
+            <span class="tldr-label"><a href="#llmcert" class="tldr-link"><span class="smallcaps">LLMCert</span></a></span>       is a family of certification frameworks for <b>counterfactual fairness</b>, <b>robust reading comprehension</b>, and <b>agentic tool-selection reliability</b>.
+          </p>
+          <p>
+            <span class="tldr-emoji">🧩</span>
+            <span class="tldr-label"><a href="#lumos" class="tldr-link"><span class="smallcaps">Lumos</span></a></span> is a DSL that models prompt distributions as <b>text-rich graphs and probabilistic programs</b> to scale certification across domains and modalities.
+          </p>
+          <p>
+            <span class="tldr-emoji">✅</span>
+            <span class="tldr-label">Takeaway</span>:
+            We provide a <b>foundation for specifying and certifying trustworthiness in frontier AI systems</b>.
           </p>
         </div>
       </div>
@@ -99,21 +119,28 @@
   </div>
 </section>
 
-<section class="hero is-small">
+<section class="hero is-small" id="lumos">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column">
-          <a href="https://lumos.certifyllm.com/"><u><h2 class="title is-3">Lumos: Let there be Language Model System Certification</h2></u></a>
+        <h2 class="title is-3">Lumos: A Domain-Specific Language for FMS Certification</h2></a>
           <br>
           <div class="'content has-text-justified">
+            <details>
+              <summary>
+                <span class="summary-pill">Read summary</span>
+                <a href="https://certifyllm.com/" class="summary-pill">Paper</a>
+              </summary>
+              <p>
+                We introduce <span class="smallcaps">Lumos</span>, the first principled framework for specifying and formally certifying behaviors of Language Model Systems (LMS). <span class="smallcaps">Lumos</span> is an imperative probabilistic programming DSL over graphs that generates i.i.d. prompts by sampling subgraphs from structured prompt distributions. It integrates with statistical certifiers to verify LMS behavior under arbitrary prompt distributions. Despite using only a small set of composable constructs, <span class="smallcaps">Lumos</span> can encode existing LMS specifications, including complex relational and temporal properties. It also enables new safety specifications; for example, we develop the <b>first</b> specifications for vision-language models in autonomous driving. Using these, we show that Qwen-VL exhibits critical safety failures, producing unsafe responses with ≥90% probability in rainy right-turn scenarios. <span class="smallcaps">Lumos</span>’s modular design makes specifications easy to modify as threats evolve and helps uncover concrete failure cases in state-of-the-art LMS.
+              </p>
+            </details>
             <!-- <figure>
               <img src="static/images/lumos_overview.png" alt="Lumos" style="width:100%">
               <figcaption>  </figcaption>
               
             </figure> -->
-            <p>We introduce Lumos, the first principled framework for specifying and formally certifying behaviors of Language Model Systems (LMS). Lumos is an imperative probabilistic programming DSL over graphs that generates i.i.d. prompts by sampling subgraphs from structured prompt distributions. It integrates with statistical certifiers to verify LMS behavior under arbitrary prompt distributions. Despite using only a small set of composable constructs, Lumos can encode existing LMS specifications, including complex relational and temporal properties. It also enables new safety specifications; for example, we develop the <b>first</b> specifications for vision-language models in autonomous driving. Using these, we show that Qwen-VL exhibits critical safety failures, producing unsafe responses with ≥90% probability in rainy right-turn scenarios. Lumos’s modular design makes specifications easy to modify as threats evolve and helps uncover concrete failure cases in state-of-the-art LMS.</p>
-            <h2><a href="https://lumos.certifyllm.com/"><u>Check the project page here.</u></a></h2>
           </div>
         </div>
       </div>
@@ -122,65 +149,83 @@
 </section>
 
 
-<section class="hero is-small is-light">
+<section class="hero is-small" id="llmcert">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column">
-          <a href="https://llmcert-b.certifyllm.com"><u><h2 class="title is-3">Certifying counterfactual bias with LLMCert-B</h2></u></a>
-          <br>
-          <div class="'content has-text-justified">
-            <figure>
-              <img src="static/images/overview.png" alt="LLMCert-B" style="width:100%">
-              <figcaption> LLMCert-B is a quantitative certification framework to certify
-                the counterfactual bias in the responses of a target LLM for a random set of prompts that differ by their sensitive attribute. In specific instantiations, LLMCert-B samples a (a) set of prefixes from a given distribution
-                and prepends them to a prompt set to form (b) the prompts given to the target LLM. (c) The target
-                LLM’s responses are checked for (d) bias by a bias detector, whose results are fed into a certifier.
-                (e) The certifier computes bounds on the probability of obtaining biased responses from the target LLM
-                for any set of prompts formed with a random prefix from the distribution.  </figcaption>
-            </figure>
-            <h2><a href="https://llmcert-b.certifyllm.com"><u>Check the project page here.</u></a></h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+          <h2 class="title is-3"><span class="smallcaps">LLMCert</span>: A family of FMS Certification Frameworks</h2>
 
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <a href="https://llmcert-c.certifyllm.com/"><u><h2 class="title is-3">Certifying knowledge comprehension with LLMCert-C</h2></u></a>
-          <br>
           <div class="'content has-text-justified">
-            <figure>
-              <img src="static/images/quacer-c_overview.png" alt="LLMCert-C" style="width:100%">
-              <figcaption> LLMCert-C evaluates an LLM's knowledge comprehension by (1) using knowledge graphs to represent prompt distributions, (2) generating diverse prompts with natural variations, (3) evaluating responses against ground truth, and (4) producing formal certificates with probabilistic guarantees. Through applying our framework to precision medicine and general question-answering domains, we demonstrate how naturally occurring noise in prompts can affect response accuracy in state-of-the-art LLMs. We establish novel performance hierarchies with high confidence among SOTA LLMs and provide quantitative metrics that can guide their future development and deployment in knowledge-critical applications. </figcaption>
-              
-            </figure>
-            <h2><a href="https://llmcert-c.certifyllm.com/"><u>Check the project page here.</u></a></h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+            <!-- LLMCert-B -->
+            <div class="llmcert-card">
+              <p class="llmcert-venue"><em>ICLR 2025</em></p>
+              <a href="https://llmcert-b.certifyllm.com"><u><h3 class="title is-4 has-text-centered">Certifying counterfactual bias with <span class="smallcaps">LLMCert</span>-B</h3></u></a>
+              <details>
+                <summary>
+                  <span class="summary-pill">Read summary</span>
+                  <a href="https://llmcert-b.certifyllm.com" class="summary-pill">Website</a>
+                  <a href="https://openreview.net/forum?id=HQHnhVQznF" class="summary-pill">Paper</a>
+                  <a href="https://github.com/uiuc-focal-lab/LLMCert-B" class="summary-pill">Code</a>
+                </summary>
+                <p>
+                  <span class="smallcaps">LLMCert</span>-B is a quantitative certification framework to certify
+                  the counterfactual bias in the responses of a target LLM for a random set of prompts that differ by their sensitive attribute. In specific instantiations, <span class="smallcaps">LLMCert</span>-B samples a set of prefixes from a given distribution
+                  and prepends them to a prompt set to form the prompts given to the target LLM. The target
+                  LLM’s responses are checked for bias by a bias detector, whose results are fed into a certifier.
+                  The certifier computes bounds on the probability of obtaining biased responses from the target LLM
+                  for any set of prompts formed with a random prefix from the distribution.
+                </p>
+              </details>
+              <figure>
+                <img id="overview-slideshow" src="static/images/overview.png" alt="LLMCert-B" style="width:80%; margin: 0 auto; display:block;">
+                <figcaption></figcaption>
+              </figure>
+            </div>
 
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column">
-          <a href="https://llmcert-t.certifyllm.com"><u><h2 class="title is-3">Quantifying Distributional Robustness of Agentic Tool-Selection</h2></u></a>
-          <br>
-          <div class="'content has-text-justified">
-            <figure>
-              <img src="static/images/cats.png" alt="LLMCert-B" style="width:100%">
-              <figcaption> LLMCert-T is the first statistical certification framework for robustness in agentic tool selection. It models tool selection as a Bernoulli random variable under a strong adaptive attacker that injects adversarial tools with misleading metadata. Our evaluation reveals severe fragility: under adaptive attacks, the certified bounds on accuracy collapses to nearly 0% for state-of-the-art models such as Llama-3.1 and Gemma-3.  </figcaption>
-            </figure>
-            <h2><a href="https://llmcert-t.certifyllm.com"><u>Check the project page here.</u></a></h2>
+            <!-- LLMCert-C -->
+            <div class="llmcert-card">
+              <p>
+                <span class="llmcert-venue"><em>AISTATS 2026</em></span>
+                <span class="llmcert-badge-spotlight"><em>SPOTLIGHT</em></span>
+              </p>
+              <a href="https://llmcert-c.certifyllm.com/"><u><h3 class="title is-4 has-text-centered">Certifying knowledge comprehension with <span class="smallcaps">LLMCert</span>-C</h3></u></a>
+              <details>
+                <summary>
+                  <span class="summary-pill">Read summary</span>
+                  <a href="https://llmcert-c.certifyllm.com/" class="summary-pill">Website</a>
+                  <a href="https://arxiv.org/pdf/2402.15929" class="summary-pill">Paper</a>
+                  <a href="https://github.com/uiuc-focal-lab/LLMCert-C" class="summary-pill">Code</a>
+                </summary>
+                <p>
+                  <span class="smallcaps">LLMCert</span>-C evaluates an LLM's knowledge comprehension by (1) using knowledge graphs to represent prompt distributions, (2) generating diverse prompts with natural variations, (3) evaluating responses against ground truth, and (4) producing formal certificates with probabilistic guarantees. Through applying our framework to precision medicine and general question-answering domains, we demonstrate how naturally occurring noise in prompts can affect response accuracy in state-of-the-art LLMs. We establish novel performance hierarchies with high confidence among SOTA LLMs and provide quantitative metrics that can guide their future development and deployment in knowledge-critical applications.
+                </p>
+              </details>
+              <figure>
+                <img src="static/images/quacer-c_overview.png" alt="LLMCert-C" style="width:80%; margin: 0 auto; display:block;">
+                <figcaption></figcaption>
+              </figure>
+            </div>
+
+            <!-- LLMCert-T -->
+            <div class="llmcert-card">
+              <p class="llmcert-venue"><em>AIWILD @ ICLR 2026</em></p>
+              <a href="https://llmcert-t.certifyllm.com"><u><h3 class="title is-4 has-text-centered">Quantifying distributional robustness of agentic tool selection with <span class="smallcaps">LLMCert</span>-T</h3></u></a>
+              <details>
+                <summary>
+                  <span class="summary-pill">Read summary</span>
+                  <a href="https://llmcert-t.certifyllm.com" class="summary-pill">Website</a>
+                  <a href="https://arxiv.org/abs/2510.03992" class="summary-pill">Paper</a>
+                </summary>
+                <p>
+                  <span class="smallcaps">LLMCert</span>-T is the first statistical certification framework for robustness in agentic tool selection. It models tool selection as a Bernoulli random variable under a strong adaptive attacker that injects adversarial tools with misleading metadata. Our evaluation reveals severe fragility: under adaptive attacks, the certified bounds on accuracy collapses to nearly 0% for state-of-the-art models such as Llama-3.1 and Gemma-3.
+                </p>
+              </details>
+              <figure>
+                <img src="static/images/cats.png" alt="LLMCert-T" style="width:80%; margin: 0 auto; display:block;">
+                <figcaption></figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </div>
@@ -206,6 +251,19 @@
   </div>
 </section>
 
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Contributors</h2>
+        <div id="contributors-container" class="contributors-grid"></div>
+        <h3 class="title is-4" style="margin-top: 2rem;">Industry collaborators</h3>
+        <div id="industry-collabs-container" class="contributors-grid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
@@ -221,6 +279,77 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Add contributor full names here; recursion will render them all.
+  const CONTRIBUTORS = [
+    "Isha Chaudhary",
+    "Vedaant Jain",
+    "Jehyeok Yeon",
+    "Kavya Sachdeva",
+    "Sayan Ranu",
+    "Gagandeep Singh",
+  ];
+
+  // Add industry collaborator full names here.
+  const INDUSTRY_COLLABORATORS = [
+    // "First Last",
+    "Qian Hu",
+    "Manoj Kumar",
+    "Morteza Ziyadi",
+    "Rahul Gupta"
+  ];
+
+  function slugFromName(name) {
+    const parts = name.trim().toLowerCase().split(/\s+/);
+    if (parts.length === 1) return parts[0];
+    return parts[0] + "_" + parts[parts.length - 1];
+  }
+
+  function renderContributorsRec(names, idx, container) {
+    if (idx >= names.length) return;
+    const name = names[idx];
+    const slug = slugFromName(name);
+
+    const item = document.createElement("div");
+    item.className = "contrib-item";
+
+    const avatar = document.createElement("div");
+    avatar.className = "contrib-avatar";
+
+    const img = document.createElement("img");
+    img.src = "static/images/ppl/" + slug + ".png";
+    img.alt = name;
+    img.onerror = function () {
+      // If no image yet, keep the blank circle.
+      this.style.display = "none";
+    };
+
+    avatar.appendChild(img);
+
+    const label = document.createElement("p");
+    label.className = "contrib-name";
+    label.textContent = name;
+
+    item.appendChild(avatar);
+    item.appendChild(label);
+    container.appendChild(item);
+
+    renderContributorsRec(names, idx + 1, container);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const contribContainer = document.getElementById("contributors-container");
+    if (contribContainer && Array.isArray(CONTRIBUTORS)) {
+      renderContributorsRec(CONTRIBUTORS, 0, contribContainer);
+    }
+
+    const industryContainer = document.getElementById("industry-collabs-container");
+    if (industryContainer && Array.isArray(INDUSTRY_COLLABORATORS)) {
+      renderContributorsRec(INDUSTRY_COLLABORATORS, 0, industryContainer);
+    }
+  });
+</script>
 
  
 </body>

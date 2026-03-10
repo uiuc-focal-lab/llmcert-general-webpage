@@ -149,5 +149,140 @@ body {
   font-size: smaller;
 }
 
+/* Generic small caps helper */
+.smallcaps {
+  font-variant: small-caps;
+}
 
+/* TL;DR styling */
+.tldr-points p {
+  margin-bottom: 0.75rem;
+}
 
+.tldr-emoji {
+  font-size: 1.7rem;
+  margin-right: 0.3rem;
+}
+
+.tldr-label {
+  color: #800000; /* maroon */
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.tldr-link {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: hsl(204, 86%, 53%);
+  text-decoration: none;
+  margin-left: 0.15rem;
+}
+
+.tldr-link:hover {
+  text-decoration: underline;
+}
+
+/* Read summary toggles */
+details summary {
+  cursor: pointer;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: inherit;
+  display: block;
+  margin: 0.5rem auto 0.75rem auto;
+  text-align: center;
+}
+
+details {
+  margin-bottom: 0.5rem;
+}
+
+details summary:hover {
+  text-decoration: none;
+}
+
+.summary-pill {
+  display: inline-block;
+  border: 1px solid #000;
+  border-radius: 999px;
+  padding: 0.15rem 0.9rem;
+  margin: 0 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #000;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.summary-pill:hover {
+  background-color: #f4f4f5;
+  text-decoration: none;
+}
+
+/* LLMCert cards */
+.llmcert-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem 1.75rem;
+  margin: 1.25rem auto;
+  max-width: 900px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.llmcert-venue {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f172a;
+  background-color: #bbf7d0; /* light green */
+  border-radius: 999px;
+  padding: 0.15rem 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.llmcert-badge-spotlight {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #ef4444; /* red */
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+  margin-left: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Contributors */
+.contributors-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.contrib-item {
+  text-align: center;
+}
+
+.contrib-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 2px solid #d4d4d8;
+  background-color: #f4f4f5;
+  margin: 0 auto 0.5rem;
+}
+
+.contrib-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.contrib-name {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
