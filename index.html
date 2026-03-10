@@ -82,6 +82,47 @@
   </ul>
 </div>
 
+<section class="section hero is-small is-hidden-desktop">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <nav class="toc-mobile-nav">
+          <div class="toc-title-block">
+            <h3 class="toc-title">Certifying frontier model systems</h3>
+          </div>
+          <div class="toc-mobile-links">
+            <a href="#tldr" class="toc-link">TL;DR</a>
+            <a href="#lumos" class="toc-link"><span class="smallcaps">Lumos</span></a>
+            <a href="#llmcert" class="toc-link"><span class="smallcaps">LLMCert</span></a>
+            <a href="#media" class="toc-link">Media</a>
+            <a href="#contributors" class="toc-link">Contributors</a>
+          </div>
+          <div class="toc-mobile-contact">
+            <span class="link-block">
+              <a href="mailto:isha4@illinois.edu" target="_blank"
+              class="external-link button is-small is-rounded is-dark">
+                <span class="icon">
+                  <i class="fa fa-envelope"></i>
+                </span>
+                <span>Contact</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://www.twitter.com/uiuc_focal_lab" target="_blank"
+              class="external-link button is-small is-rounded is-dark">
+                <span class="icon">
+                  <i class="bi bi-twitter-x"></i>
+                </span>
+                <span>Twitter</span>
+              </a>
+            </span>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -392,10 +433,10 @@
       }
 
       if (currentId) {
-        var active = document.querySelector('.toc-link[href="' + currentId + '"]');
-        if (active) {
-          active.classList.add('active');
-        }
+        var activeLinks = document.querySelectorAll('.toc-link[href="' + currentId + '"]');
+        activeLinks.forEach(function (link) {
+          link.classList.add('active');
+        });
       }
     }
 

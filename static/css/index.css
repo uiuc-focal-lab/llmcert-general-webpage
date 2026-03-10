@@ -161,7 +161,22 @@ body {
 }
 
 body {
-  padding-left: 260px;
+  padding-left: 0;
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding-left: 260px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .toc-sidebar {
+    display: none;
+  }
+  body {
+    padding-top: 4.25rem;
+  }
 }
 
 .toc-title-block {
@@ -210,6 +225,32 @@ body {
   background-color: #fee2e2;
   border-radius: 6px;
   padding: 0.05rem 0.35rem;
+}
+
+.toc-mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.toc-mobile-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.toc-mobile-contact {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 /* Generic small caps helper */
