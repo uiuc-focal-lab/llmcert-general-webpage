@@ -67,7 +67,7 @@ $(document).ready(function() {
       if (slidePaths.length > 1) {
         setInterval(function() {
           setSlide((idx + 1) % slidePaths.length);
-        }, 2000); // 2 seconds per slide
+        }, 2500); // 2.5 seconds per slide
       }
 
       // Restart slideshow from first slide when Lumos block enters viewport
